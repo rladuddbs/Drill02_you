@@ -2,8 +2,15 @@ from pico2d import *
 
 import math
 
+
+
 cx, cy = 400, 300
 
+def render_frame(x,y):
+    clear_canvas_now()
+    grass.draw_now(400,30)
+    character.draw_now(x,y)
+    delay(0.05)
 
 def run_circle():
     print('CIRCLE')
@@ -11,19 +18,13 @@ def run_circle():
     for deg in range(0,270,5):
         x = cx + r * math.cos(math.radians(deg))
         y = cy + r * math.sin(math.radians(deg))
-        clear_canvas_now()
-        grass.draw_now(400,30)
-        character.draw_now(x,y)
-        delay(0.05)
+        render_frame(x,y)
 
 
 def run_rectangle():
     print('RECTANGLE')
     for x in range(50,750+1,5): 
-        clear_canvas_now()
-        grass.draw_now(400,30)
-        character.draw_now(x,90)
-        delay(0.05)
+        render_frame(x,90)
     
 open_canvas()
 
